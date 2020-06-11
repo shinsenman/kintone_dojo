@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テンプレート</title>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+header {
+  background-color: #1aaedb;
+  border-bottom: #ead963 6px solid;
+}
+.container {
+  padding: 16px;
+  padding-left: 120px;
+}
+.container h1,
+.container h2 {
+  margin: 0;
+  color: #fff;
+  line-height: 1;
+}
+.container h1 {
+  padding: 30px 0 5px 0;
+  font-size: 24px;
+  border-bottom: 1px dotted #fff;
+  font-weight: 500;
+}
+.container h2 {
+  padding: 6px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+main {
+  min-height: calc(100% - 156px);
+}
+main .container {
+  padding: 50px 120px;
+  background-color: #fff;
+}
+footer {
+  background-color: #1aaedb;
+}
+footer .container {
+  min-height: 50px;
+  padding-top:10px;
+  padding-bottom:10px;
+  color: #000;
+  font-size: 12px;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  footer .container {
+    color: #fff;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<h1>dojo</h1>
+<h2>JavaScript講義</h2>
+</div>
+</header>
+<main>
+<div class="container">
+<section>
+
+</section>
+</div>
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div>
+</footer>
+<script>
+  console.log('dojo楽しい');
+</script>
+</body>
+</html>
