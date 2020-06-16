@@ -34,115 +34,119 @@ tr#allFile {
 <div class="main-wrapper">
 <section>
 	<table>
-			<tr id="allFile">
-					<td>フォルダ名</td>
-					<td>閲覧権限</td>
-					<td>編集権限</td>
-					<td>削除権限</td>
-			</tr>
-			<tr>
-					<td id="folderName1"></td>
-					<td id="viewAuth1"></td>
-					<td id="editAuth1"></td>
-					<td id="deleteAuth1"></td>
-			</tr>
-			<tr>
-					<td id="folderName2"></td>
-					<td id="viewAuth2"></td>
-					<td id="editAuth2"></td>
-					<td id="deleteAuth2"></td>
-			</tr>
-			<tr>
-					<td id="folderName3"></td>
-					<td id="viewAuth3"></td>
-					<td id="editAuth3"></td>
-					<td id="deleteAuth3"></td>
-			</tr>
-			<tr>
-					<td id="folderName4"></td>
-					<td id="viewAuth4"></td>
-					<td id="editAuth4"></td>
-					<td id="deleteAuth4"></td>
-			</tr>
-			<tr>
-					<td id="folderName5"></td>
-					<td id="viewAuth5"></td>
-					<td id="editAuth5"></td>
-					<td id="deleteAuth5"></td>
-			</tr>
-			<tr>
-					<td id="folderName6"></td>
-					<td id="viewAuth6"></td>
-					<td id="editAuth6"></td>
-					<td id="deleteAuth6"></td>
-			</tr>
-			<tr>
-					<td id="folderName7"></td>
-					<td id="viewAuth7"></td>
-					<td id="editAuth7"></td>
-					<td id="deleteAuth7"></td>
-			</tr>
+		<tr id="allFile">
+			<td>フォルダ名</td>
+			<td>閲覧権限</td>
+			<td>編集権限</td>
+			<td>削除権限</td>
+		</tr>
+		<tr>
+			<td id="folderName1"></td>
+			<td id="viewAuth1"></td>
+			<td id="editAuth1"></td>
+			<td id="deleteAuth1"></td>
+		</tr>
+		<tr>
+			<td id="folderName2"></td>
+			<td id="viewAuth2"></td>
+			<td id="editAuth2"></td>
+			<td id="deleteAuth2"></td>
+		</tr>
+		<tr>
+			<td id="folderName3"></td>
+			<td id="viewAuth3"></td>
+			<td id="editAuth3"></td>
+			<td id="deleteAuth3"></td>
+		</tr>
+		<tr>
+			<td id="folderName4"></td>
+			<td id="viewAuth4"></td>
+			<td id="editAuth4"></td>
+			<td id="deleteAuth4"></td>
+		</tr>
+		<tr>
+			<td id="folderName5"></td>
+			<td id="viewAuth5"></td>
+			<td id="editAuth5"></td>
+			<td id="deleteAuth5"></td>
+		</tr>
+		<tr>
+			<td id="folderName6"></td>
+			<td id="viewAuth6"></td>
+			<td id="editAuth6"></td>
+			<td id="deleteAuth6"></td>
+		</tr>
+		<tr>
+			<td id="folderName7"></td>
+			<td id="viewAuth7"></td>
+			<td id="editAuth7"></td>
+			<td id="deleteAuth7"></td>
+		</tr>
 	</table>
+</section>
+<section>
+		<h2>閲覧権限が全員にあるフォルダ</h2>
+		<ul id="list"></ul>
 </section>
 </div>
 <script>
-
+		
 // ここに処理を記述する
 
 'use strict';
 
 // オブジェクトを定義する
 var fileManage = {
-f001: {
-	folderName: '情報システム部',
-	viewAuth: '情報システム部',
-	editAuth: '情報システム部',
-	deleteAuth: '情報システム部'
-},
-f002: {
-	folderName: '経営管理部',
-	viewAuth: '経営管理部',
-	editAuth: '経営管理部',
-	deleteAuth: '経営管理部'
-},
-f003: {        
-	folderName: '営業部',
-	viewAuth: 'Everyone',
-	editAuth: '営業部',
-	deleteAuth: '営業部'
-},
-f004: {
-	folderName: '開発本部',
-	viewAuth: '開発本部',
-	editAuth: '開発本部',
-	deleteAuth: '開発本部'
-},
-f005: {
-	folderName: '総務部',
-	viewAuth: 'Everyone',
-	editAuth: 'Everyone',
-	deleteAuth: '総務部'
-},
-f006: {
-	folderName: '経理部',
-	viewAuth: '経理部',
-	editAuth: '経理部',
-	deleteAuth: '経理部'
-},
-f007: {
-	folderName: '企画部',
-	viewAuth: 'Everyone',
-	editAuth: '企画部',
-	deleteAuth: '企画部'
-}
+	f001: {
+		folderName: '情報システム部',
+		viewAuth: '情報システム部',
+		editAuth: '情報システム部',
+		deleteAuth: '情報システム部'
+	},
+	f002: {
+		folderName: '経営管理部',
+		viewAuth: '経営管理部',
+		editAuth: '経営管理部',
+		deleteAuth: '経営管理部'
+	},
+	f003: {        
+		folderName: '営業部',
+		viewAuth: 'Everyone',
+		editAuth: '営業部',
+		deleteAuth: '営業部'
+	},
+	f004: {
+		folderName: '開発本部',
+		viewAuth: '開発本部',
+		editAuth: '開発本部',
+		deleteAuth: '開発本部'
+	},
+	f005: {
+		folderName: '総務部',
+		viewAuth: 'Everyone',
+		editAuth: 'Everyone',
+		deleteAuth: '総務部'
+	},
+	f006: {
+		folderName: '経理部',
+		viewAuth: '経理部',
+		editAuth: '経理部',
+		deleteAuth: '経理部'
+	},
+	f007: {
+		folderName: '企画部',
+		viewAuth: 'Everyone',
+		editAuth: '企画部',
+		deleteAuth: '企画部'
+	}
 };
 
 // オブジェクトの情報をブラウザに表示する
 for (var i = 0; i < 7; i++) {
-document.getElementById('folderName' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['folderName'];
-document.getElementById('viewAuth' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['viewAuth'];
-document.getElementById('editAuth' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['editAuth'];
-document.getElementById('deleteAuth' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['deleteAuth'];
+	document.getElementById('folderName' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['folderName'];
+	document.getElementById('viewAuth' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['viewAuth'];
+	document.getElementById('editAuth' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['editAuth'];
+	document.getElementById('deleteAuth' + (i + 1)).textContent = fileManage['f00' + (i + 1)]['deleteAuth'];
 }
 
 </script>
