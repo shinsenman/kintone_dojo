@@ -84,7 +84,7 @@ footer .container {
   'use strict';
 
   // 現在時刻を計算してくれる関数
-  var countup = function () {
+  var countup = function() {
     var now = new Date();
     var year = now.getFullYear();
     var month = now.getMonth() + 1;
@@ -97,12 +97,12 @@ footer .container {
     min = ('0' + min).slice(-2);
     var sec = now.getSeconds();
     sec = ('0' + sec).slice(-2);
-    var output = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec; 
+    var output = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec;
     return output;
   };
 
   // ファイルを読み込んだ瞬間に一回実行する
-  var displayTime = function () {
+  var displayTime = function() {
     var data = countup();
     document.getElementById('output').textContent = data;
   };
