@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<title>kintone の月額料金</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+h1 {
+    border:solid 3px #FFBF00;
+    padding:3px;
+    color:#190707;
+    width: 400px;
+}
+div.user {
+    font-size:14pt;
+    font-weight:bold;
+}
+form {
+    margin-left:20px;
+}
+
+</style>
+</head>
+<body>
+    <h1>kintone のライセンス料</h1>
+    <div class="user">最低ユーザー数(ライトコース)での利用料金</div>
+    <br>
+    <form>
+        <input type="checkbox">セキュアオプション（1ユーザー あたり 250円）<br>
+        <input type="checkbox">ディスク増設（10GB あたり 1000円）<br>
+        <h4>月額金額：<span id="price">3900</span>円</h4>
+    </form>
+<script>
+
+// ここに処理を記述してください
+'use srtict';
+
+// 価格を定義する
+var basicPrice = 3900;
+var securePrice = 250;
+var diskPrice = 1000;
+
+// チェックボックスのイベントを取得する
+document.querySelector('form').onchange = function() {
+	var check = document.querySelectorAll('input');
+	var secureOptCheck = check[0].checked;
+	var diskOptCheck = check[1].checked;
+
+	if (secureOptCheck === true && diskOptCheck === false) {
+		// セキュアオプションのみにチェック
+		totalCalc(basicPrice, securePrice, 0);
+	}else if (secureOptCheck === false && diskOptCheck === true) {
+		// ディスク増設のみにチェック
+		totalCalc(basicPrice, 0, diskPrice);
+	}else if (secureOptCheck === true && diskOptCheck === true) {
+		// 両方にチェックあり
+		totalCalc(basicPrice, securePrice, diskPrice);
+	}else{
+		// 両方にチェックなし
+		totalCalc(basicPrice, 0, 0);
+	}
+}
+
+// 3900円にオプション料をプラスする計算をする
+var totalCalc = function(basicPrice, securePrice, diskPrice) {
+	var total = basicPrice + securePrice + diskPrice;
+	document.getElementById('price').textContent = total;
+};
+
+</script>
+</body>
+</html>
