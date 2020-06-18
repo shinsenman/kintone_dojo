@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<title>kintone の月額料金</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+h1 {
+    border:solid 3px #FFBF00;
+    padding:3px;
+    color:#190707;
+    width: 400px;
+}
+div.user {
+    font-size:14pt;
+    font-weight:bold;
+}
+form {
+    margin-left:20px;
+}
+button {
+    margin-right: 15px;
+}
+</style>
+</head>
+<body>
+  <h1>kintone のライセンス料</h1>
+  <div class="user">最低ユーザー数(ライトコース)での利用料金</div><br>
+  <form>
+    <input type="checkbox">セキュアオプション（1ユーザー あたり 250円） ×
+    <select>
+      <option value="1">1名</option>
+      <option value="2">2名</option>
+      <option value="3">3名</option>
+      <option value="4">4名</option>
+      <option value="5">5名</option>
+    </select>
+    <br>
+    <input type="checkbox">ディスク増設（10GB あたり 1000円） ×
+    <select>
+      <option value="1">10GB</option>
+      <option value="2">20GB</option>
+      <option value="3">30GB</option>
+      <option value="4">40GB</option>
+      <option value="5">50GB</option>
+    </select>
+    <h4><button type="button">計算</button>月額金額：<span id="price">3900</span>円</h4>
+  </form>
+<script>
+
+// ここに処理を記述してください
+'use srtict';
+
+// 価格を定義する
+var basicPrice = 3900;
+var securePrice = 250;
+var diskPrice = 1000;
+
+// チェックボックスのイベントを取得する
+var check = document.querySelectorAll('input');
+var options = document.querySelectorAll('select');
+
+document.querySelector('button').onclick = function() {
+	var secureOptCheck = check[0].checked;
+	var diskOptCheck = check[1].checked;
+	var number = options[0].value;
+	var size = options[1].value;
+
+	if (secureOptCheck === true && diskOptCheck === false) {
+		// セキュアオプションのみにチェック
+		totalCalc(basicPrice, securePrice, number, 0, size);
+	} else if (secureOptCheck === false && diskOptCheck === true) {
+		// ディスク増設のみにチェック
+		totalCalc(basicPrice, 0, number, diskPrice, size);
+	} else if (secureOptCheck === true && diskOptCheck === true) {
+		// 両方にチェックあり
+		totalCalc(basicPrice, securePrice, number, diskPrice, size);
+	} else {
+		// 両方にチェックなし
+		totalCalc(basicPrice, 0, number, 0, size);
+	}
+};
+
+// 3900円にオプション料をプラスする計算をする
+var totalCalc = function(basicPrice, securePrice, number,  diskPrice, size) {
+  var total = basicPrice + securePrice * number + diskPrice * size;
+  document.getElementById('price').textContent = total;
+};
+
+</script>
+</body>
+</html>
