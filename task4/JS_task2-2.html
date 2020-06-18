@@ -57,28 +57,29 @@ var securePrice = 250;
 var diskPrice = 1000;
 
 // チェックボックスのイベントを取得する
+var check = document.querySelectorAll('input');
+var options = document.querySelectorAll('select');
+
 document.querySelector('button').onclick = function() {
-	var check = document.querySelectorAll('input');
 	var secureOptCheck = check[0].checked;
 	var diskOptCheck = check[1].checked;
-	var options = document.querySelectorAll('select');
 	var number = options[0].value;
 	var size = options[1].value;
 
 	if (secureOptCheck === true && diskOptCheck === false) {
 		// セキュアオプションのみにチェック
 		totalCalc(basicPrice, securePrice, number, 0, size);
-	}else if (secureOptCheck === false && diskOptCheck === true) {
+	} else if (secureOptCheck === false && diskOptCheck === true) {
 		// ディスク増設のみにチェック
 		totalCalc(basicPrice, 0, number, diskPrice, size);
-	}else if (secureOptCheck === true && diskOptCheck === true) {
+	} else if (secureOptCheck === true && diskOptCheck === true) {
 		// 両方にチェックあり
 		totalCalc(basicPrice, securePrice, number, diskPrice, size);
-	}else{
+	} else{
 		// 両方にチェックなし
 		totalCalc(basicPrice, 0, number, 0, size);
 	}
-}
+};
 
 // 3900円にオプション料をプラスする計算をする
 var totalCalc = function(basicPrice, securePrice, number,  diskPrice, size) {

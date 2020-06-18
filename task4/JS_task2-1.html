@@ -40,32 +40,36 @@ var basicPrice = 3900;
 var securePrice = 250;
 var diskPrice = 1000;
 
-// チェックボックスのイベントを取得する
-document.querySelector('form').onchange = function() {
-	var check = document.querySelectorAll('input');
+// チェックボックスの組み合わせに合わせて計算させる関数を定義する
+var check = document.querySelectorAll('input');
+var checkEvent = function() {
 	var secureOptCheck = check[0].checked;
 	var diskOptCheck = check[1].checked;
 
 	if (secureOptCheck === true && diskOptCheck === false) {
 		// セキュアオプションのみにチェック
 		totalCalc(basicPrice, securePrice, 0);
-	}else if (secureOptCheck === false && diskOptCheck === true) {
+	} else if (secureOptCheck === false && diskOptCheck === true) {
 		// ディスク増設のみにチェック
 		totalCalc(basicPrice, 0, diskPrice);
-	}else if (secureOptCheck === true && diskOptCheck === true) {
+	} else if (secureOptCheck === true && diskOptCheck === true) {
 		// 両方にチェックあり
 		totalCalc(basicPrice, securePrice, diskPrice);
-	}else{
+	} else{
 		// 両方にチェックなし
 		totalCalc(basicPrice, 0, 0);
 	}
-}
+};
 
-// 3900円にオプション料をプラスする計算をする
+// 3900円にオプション料をプラスする計算をする関数を定義する
 var totalCalc = function(basicPrice, securePrice, diskPrice) {
 	var total = basicPrice + securePrice + diskPrice;
 	document.getElementById('price').textContent = total;
 };
+
+// チェックボックスのイベントを取得し、関数を実行する
+check[0].onchange = checkEvent;
+check[1].onchange = checkEvent;
 
 </script>
 </body>
