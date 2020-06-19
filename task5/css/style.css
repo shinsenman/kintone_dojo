@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+body {
+    margin: 0px;
+    padding: 0px;
+    color: #000;    /*全体の文字色*/
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;   /*フォント種類*/
+    font-size: 14px;    /*文字サイズ*/
+    line-height: 2;     /*行間*/
+    -webkit-text-size-adjust: none;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse:collapse;
+    font-size: 100%;
+    border-spacing: 0;
+}
+
+.searchField {
+    text-align: center;
+}
+
+#zipCodeMark {
+    font-weight: bold;
+}
+
+/*ロゴ
+---------------------------------------------------------------------------*/
+.logo {
+  width: 60%;
+  padding: 0 20%;
+}
+
+
+/*ボタン
+---------------------------------------------------------------------------*/
+button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #000080;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+/*検索フィールド
+---------------------------------------------------------------------------*/
+#zipCode {
+    padding: 0.5em 1em; /*ボックスを大きくする*/
+    font-size: 16px;
+    border-radius: 3px; /*ボックス角の丸み*/
+    border: 2px solid #ddd; /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+/*テーブル
+---------------------------------------------------------------------------*/
+.addressTable {
+    width: 50%;
+    margin: 20px auto;
+    border-top: 2px solid #000;
+}
+.list .addressTable {
+    margin-bottom: 0;
+}
+.addressTable td, .addressTable th {
+    border-bottom: 2px solid #000;
+    padding: 10px;  /*ボックス内の余白*/
+    word-break: break-all;
+}
+/*テーブル１行目に入った見出し部分*/
+.addressTable th.table_heading {
+    width: auto;
+    text-align: left;   /*左よせ*/
+    background: #000;   /*背景色*/
+    color: #fff;        /*文字色*/
+    border-right: none;
+}
+.addressTable th {
+    width: 70px;   /*幅*/
+    text-align: right;
+    border-right: 1px dashed #000;  /*右側の線の幅、線種、色*/
+}
