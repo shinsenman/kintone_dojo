@@ -1,0 +1,88 @@
+/* title */
+.center {
+  text-align: center;
+  height: 300px;
+  background-color: #01a3a4;
+  color: #ffffff;
+}
+
+.center h1 {
+  line-height: 300px;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+/* left-box */
+.left-box {
+  float: left;
+  width: 45%;
+}
+
+.left-box .profile {
+  width: 20vw;
+  margin: 0 0 0 auto;
+}
+
+.left-box .icon, .left-box p {
+  width: 100%;
+}
+
+.left-box .my-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* right-box */
+.right-box {
+  float: right;
+  width: 45%;
+}
+
+.right-box h3 {
+  font-size: 24px;
+}
+
+.right-box .box3 {
+  margin-top: 32px;
+}
+
+.right-box table, .right-box th, .right-box td {
+  border: #000000 solid 1px;
+  border-collapse: collapse;
+}
+
+.right-box table {
+  margin-top: 16px;
+}
+
+.right-box td {
+  padding: 10px;
+}
+
+/* all */
+body {
+  margin: 0;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+.main {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 48px;
+  background-color: #FFFFFF;
+}
+
+h1, h3 {
+  margin: 0;
+}
+
+p, li, th, td {
+  font-size: 16px;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
